@@ -8,6 +8,10 @@ public class Job {
     private static int nextId = 1;
 
     private String name;
+    private String company;
+    private String place;
+    private String position;
+    private String skill;
     private Employer employer;
     private Location location;
     private PositionType positionType;
@@ -44,6 +48,38 @@ public class Job {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
+    @Override
+    public String toString(){
+        if(this.getEmployer()  == null){
+            return "\n"+"OOPS! This job does not seem to exist."+"\n";
+        }
+        if(this.getName() != ""){
+        name = this.getName();
+        }else{name = "Data not available";}
+
+        if(this.getEmployer().getValue() != ""){
+            company = this.getEmployer().toString();
+        }else{company = "Data not available";}
+
+        if(this.getLocation().getValue() != ""){
+            place = this.getLocation().toString();
+        }else{place = "Data not available";}
+
+        if(this.getPositionType().getValue() != ""){
+            position = this.getPositionType().toString();
+        }else{position = "Data not available";}
+
+        if(this.getCoreCompetency().getValue() != ""){
+            skill = this.getCoreCompetency().toString();
+        }else{skill = "Data not available";}
+
+     return   String.format("\nID: " + this.getId() + "\n" +
+                     "Name: "+ name +"\n" +
+                     "Employer: "+ company +"\n" +
+                     "Location: "+ place +"\n" +
+                     "Position Type: "+ position +"\n" +
+                     "Core Competency: "+ skill +"\n");}
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.

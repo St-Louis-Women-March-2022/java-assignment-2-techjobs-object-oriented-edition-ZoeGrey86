@@ -2,23 +2,23 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Employer extends JobField{
+public abstract class JobField {
 
     private int id;
     private static int nextId = 1;
     private String value;
 
-    public Employer() {
+
+    public JobField() {
         id = nextId;
         nextId++;
     }
 
-    public Employer(String value) {
+    public JobField(String value) {
         this();
         if(value == ""){
             this.value = "Data not available";
         }else{this.value = value;}
-
     }
 
     // Custom toString, equals, and hashCode methods:
